@@ -61,6 +61,7 @@ public class FilmeDAO {
                 f.setLikes(f.getLikes()+1);
             }
         }
+        salvarFilme();
     }
 
     public void dislike(int id) {
@@ -97,11 +98,9 @@ public class FilmeDAO {
     }
 
 
-    private static void salvar() {
+    private static void salvarFilme() {
         try {
-            objectMapper.writeValue(
-                    new File("filmes.json"),
-                    filmes);
+            objectMapper.writeValue(new File("filmes.json"), filmes);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
