@@ -12,6 +12,8 @@ public class Filme {
     private String imagem;
     private int likes;
 
+    private boolean favorito;
+
     private List<Ator> atores;
 
     public int getId() {
@@ -76,6 +78,14 @@ public class Filme {
 
     public void setLikes(int likes) {
         this.likes = likes;
+    }
+
+    public boolean isFavorito() {
+        return favorito;
+    }
+
+    public void setFavorito(boolean favorito) {
+        this.favorito = favorito;
     }
 
     public List<Ator> getAtores() {

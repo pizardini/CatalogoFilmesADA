@@ -28,8 +28,7 @@
       <p th:text="${filme.sinopse}"></p>
     </td>
     <td th:text="${filme.duracao}"></td>
-    <td><a th:href="@{/filme/like/{id}(id=${filme.id})}">Like</a></td>
-<!--    <td><button type="button" class="btn btn-primary" th:href="@{/filme/like/{id}(id=${filme.id})}">Like</button></td>-->
+    <td><a th:href="@{/filme/like/{id}(id=${filme.id})}" class="btn btn-primary" role="button">Like</a></td>
     <td><a th:href="@{/filme/dislike/{id}(id=${filme.id})}">Dislike</a></td>
     <td><a th:href="@{/filme/editar/{id}(id=${filme.id})}">Editar</a></td>
     <td><a th:href="@{/filme/remover/{id}(id=${filme.id})}" onclick="return confirm('Tem certeza que deseja excluir este filme?')">Excluir</a></td>
