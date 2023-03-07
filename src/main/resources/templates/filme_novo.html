@@ -11,7 +11,13 @@
   <input type="text" id="titulo" name="titulo" th:field="*{titulo}"/>
   <br>
   <label for="genero">Gênero:</label>
-  <input type="text" id="genero" name="genero" th:field="*{genero}"/>
+  <!--  <input type="text" id="genero" name="genero" th:field="*{genero}"/>-->
+  <select name="genero" id="genero">
+    <option value="comédia">Comédia</option>
+    <option value="ação">Ação</option>
+    <option value="drama">Drama</option>
+    <option value="terror">Terror</option>
+  </select>
   <br>
   <label for="sinopse">Sinopse:</label>
   <input type="text" id="sinopse" name="sinopse" th:field="*{sinopse}"/>

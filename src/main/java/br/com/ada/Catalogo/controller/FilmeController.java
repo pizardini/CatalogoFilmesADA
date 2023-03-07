@@ -19,7 +19,7 @@ public class FilmeController {
     public String listar(Model model) {
         List<Filme> lista = filmeDAO.buscarTodos();
         model.addAttribute("filmes", lista);
-        return "filme_listar";
+        return "listar";
     }
 
     @GetMapping("/editar/{id}")
@@ -38,6 +38,18 @@ public class FilmeController {
     @GetMapping("/remover/{id}")
     public String remover(@PathVariable int id) {
         filmeDAO.remover(id);
+        return "redirect:/filme";
+    }
+
+    @GetMapping("/like/{id}")
+    public String like(@PathVariable int id) {
+        filmeDAO.like(id);
+        return "redirect:/filme";
+    }
+
+    @GetMapping("/dislike/{id}")
+    public String dislike(@PathVariable int id) {
+        filmeDAO.dislike(id);
         return "redirect:/filme";
     }
 

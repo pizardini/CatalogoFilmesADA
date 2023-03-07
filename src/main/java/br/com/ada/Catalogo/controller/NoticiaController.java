@@ -23,7 +23,7 @@ public class NoticiaController {
     public String listar(Model model) {
         List<Noticia> lista = noticiaDAO.buscarTodos();
         model.addAttribute("noticias", lista);
-        return "noticia_listar";
+        return "listar";
     }
 
     @GetMapping("/editar/{id}")

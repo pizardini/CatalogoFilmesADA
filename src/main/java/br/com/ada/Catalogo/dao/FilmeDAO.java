@@ -10,10 +10,12 @@ import java.util.List;
 public class FilmeDAO {
 
     private static List<Filme> filmes = new ArrayList<>();
+    private static List<Filme> favoritos = new ArrayList<>();
     private static int proxId = 1;
 
     public void adicionar(Filme filme) {
         filme.setId(proxId++);
+        filme.setLikes(0);
         filmes.add(filme);
     }
 
@@ -29,6 +31,24 @@ public class FilmeDAO {
 
     public void remover(int id) {
         filmes.removeIf(f -> f.getId() == id);
+    }
+
+    public void like(int id) {
+        for (int i = 0; i < filmes.size(); i++) {
+            Filme f = filmes.get(i);
+            if (f.getId() == id) {
+                f.setLikes(f.getLikes()+1);
+            }
+        }
+    }
+
+    public void dislike(int id) {
+        for (int i = 0; i < filmes.size(); i++) {
+            Filme f = filmes.get(i);
+            if (f.getId() == id) {
+                f.setLikes(f.getLikes()-1);
+            }
+        }
     }
 
     public Filme buscaId(int id) {

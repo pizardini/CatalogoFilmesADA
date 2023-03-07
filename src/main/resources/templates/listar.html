@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+  <meta charset="UTF-8">
+  <title>Lista de Filmes</title>
+</head>
+<body>
+<h1>Lista de Filmes</h1>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Likes</th>
+    <th scope="col">Capa</th>
+    <th scope="col">Titulo</th>
+    <th scope="col">Duração</th>
+    <th scope="col">Like</th>
+    <th scope="col">Dislike</th>
+    <th scope="col">Editar</th>
+    <th scope="col">Excluir</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="filme : ${filmes}">
+    <td th:text="${filme.likes}"></td>
+    <td><img th:src="${filme.imagem}" width="250"></td>
+    <td th:text="${filme.titulo}">
+      <p th:text="${filme.sinopse}"></p>
+    </td>
+    <td th:text="${filme.duracao}"></td>
+    <td><a th:href="@{/filme/like/{id}(id=${filme.id})}">Like</a></td>
+<!--    <td><button type="button" class="btn btn-primary" th:href="@{/filme/like/{id}(id=${filme.id})}">Like</button></td>-->
+    <td><a th:href="@{/filme/dislike/{id}(id=${filme.id})}">Dislike</a></td>
+    <td><a th:href="@{/filme/editar/{id}(id=${filme.id})}">Editar</a></td>
+    <td><a th:href="@{/filme/remover/{id}(id=${filme.id})}" onclick="return confirm('Tem certeza que deseja excluir este filme?')">Excluir</a></td>
+  </tr>
+  </tbody>
+</table>
+<a th:href="@{/filme/novo}">Adicionar novo filme</a>
+<br>
+<br>
+<h1>Notícias</h1>
+<div class="media" th:each="noticia : ${noticias}">
+  <img class="mr-3" th:src="${noticia.imagem}" width="250">
+  <div class="media-body">
+    <h5 class="mt-0"><p th:text="${noticia.titulo}"></p></h5>
+    <p th:text="${noticia.corpo}"></p>
+    <p th:text="${noticia.autor}"></p>
+    <a th:href="@{/noticia/editar/{id}(id=${noticia.id})}">Editar</a>
+  </div>
+</div>
+<br>
+<a th:href="@{/noticia/novo}">Nova notícia</a>
+</div>
+</body>
+</html>
