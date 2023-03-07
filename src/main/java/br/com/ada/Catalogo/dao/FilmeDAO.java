@@ -38,6 +38,7 @@ public class FilmeDAO {
         filme.setId(proxId++);
         filme.setLikes(0);
         filmes.add(filme);
+        salvarFilme();
     }
 
     public void editar(Filme filme) {
@@ -48,10 +49,12 @@ public class FilmeDAO {
                 break;
             }
         }
+        salvarFilme();
     }
 
     public void remover(int id) {
         filmes.removeIf(f -> f.getId() == id);
+        salvarFilme();
     }
 
     public void like(int id) {
@@ -61,7 +64,6 @@ public class FilmeDAO {
                 f.setLikes(f.getLikes()+1);
             }
         }
-        salvarFilme();
     }
 
     public void dislike(int id) {

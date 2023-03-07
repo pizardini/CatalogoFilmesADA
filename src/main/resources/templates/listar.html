@@ -7,13 +7,21 @@
 </head>
 <body>
 <h1>Lista de Filmes</h1>
+<!--<div class="media" th:each="filme : ${filmes}">-->
+<!--    <img class="mr-3" th:src="${filme.imagem}" width="250">-->
+<!--  <div class="media-body">-->
+<!--    <h5 class="mt-0"><p th:text="${filme.titulo}"></p></h5>-->
+<!--    <p th:text="${filme.sinopse}"></p>-->
+<!--    <p th:text="${filme.duracao}">minutos</p>-->
+<!--    <p th:text="${filme.likes}"></p>-->
+<!--  </div>-->
+<!--</div>-->
 <table class="table">
   <thead>
   <tr>
     <th scope="col">Likes</th>
     <th scope="col">Capa</th>
     <th scope="col">Titulo</th>
-    <th scope="col">Duração</th>
     <th scope="col">Like</th>
     <th scope="col">Dislike</th>
     <th scope="col">Editar</th>
@@ -24,10 +32,11 @@
   <tr th:each="filme : ${filmes}">
     <td th:text="${filme.likes}"></td>
     <td><img th:src="${filme.imagem}" width="250"></td>
-    <td th:text="${filme.titulo}">
+    <td>
+      <p th:text="${filme.titulo}"></p>
       <p th:text="${filme.sinopse}"></p>
+      <p th:text="${filme.duracao} + ' minutos'"></p>
     </td>
-    <td th:text="${filme.duracao}"></td>
     <td><a th:href="@{/filme/like/{id}(id=${filme.id})}" class="btn btn-primary" role="button">Like</a></td>
     <td><a th:href="@{/filme/dislike/{id}(id=${filme.id})}">Dislike</a></td>
     <td><a th:href="@{/filme/editar/{id}(id=${filme.id})}">Editar</a></td>
