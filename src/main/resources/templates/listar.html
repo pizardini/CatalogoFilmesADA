@@ -7,15 +7,6 @@
 </head>
 <body>
 <h1>Lista de Filmes</h1>
-<!--<div class="media" th:each="filme : ${filmes}">-->
-<!--    <img class="mr-3" th:src="${filme.imagem}" width="250">-->
-<!--  <div class="media-body">-->
-<!--    <h5 class="mt-0"><p th:text="${filme.titulo}"></p></h5>-->
-<!--    <p th:text="${filme.sinopse}"></p>-->
-<!--    <p th:text="${filme.duracao}">minutos</p>-->
-<!--    <p th:text="${filme.likes}"></p>-->
-<!--  </div>-->
-<!--</div>-->
 <table class="table">
   <thead>
   <tr>
@@ -23,6 +14,7 @@
     <th scope="col">Capa</th>
     <th scope="col">Titulo</th>
     <th scope="col">Like</th>
+    <th scope="col">Favorito</th>
     <th scope="col">Dislike</th>
     <th scope="col">Editar</th>
     <th scope="col">Excluir</th>
@@ -30,7 +22,10 @@
   </thead>
   <tbody>
   <tr th:each="filme : ${filmes}">
-    <td th:text="${filme.likes}"></td>
+    <td>
+      <p th:text="${filme.likes}"></p>
+      <img src="https://img.favpng.com/24/24/3/youtube-like-button-png-favpng-XdWeNuQTCHRzVTEcBtLvj0igm.jpg" width="30">
+    </td>
     <td><img th:src="${filme.imagem}" width="250"></td>
     <td>
       <p th:text="${filme.titulo}"></p>
@@ -38,6 +33,7 @@
       <p th:text="${filme.duracao} + ' minutos'"></p>
     </td>
     <td><a th:href="@{/filme/like/{id}(id=${filme.id})}" class="btn btn-primary" role="button">Like</a></td>
+    <td><a th:href="@{/filme/favorito/{id}(id=${filme.id})}">Favorito</a></td>
     <td><a th:href="@{/filme/dislike/{id}(id=${filme.id})}">Dislike</a></td>
     <td><a th:href="@{/filme/editar/{id}(id=${filme.id})}">Editar</a></td>
     <td><a th:href="@{/filme/remover/{id}(id=${filme.id})}" onclick="return confirm('Tem certeza que deseja excluir este filme?')">Excluir</a></td>
@@ -55,6 +51,7 @@
     <p th:text="${noticia.corpo}"></p>
     <p th:text="${noticia.autor}"></p>
     <a th:href="@{/noticia/editar/{id}(id=${noticia.id})}">Editar</a>
+    <a th:href="@{/noticia/remover/{id}(id=${noticia.id})}" onclick="return confirm('Tem certeza que deseja excluir esta notícia?')">Excluir</a>
   </div>
 </div>
 <br>

@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class FilmeDAO {
@@ -37,6 +38,7 @@ public class FilmeDAO {
     public void adicionar(Filme filme) {
         filme.setId(proxId++);
         filme.setLikes(0);
+        filme.setFavorito(false);
         filmes.add(filme);
         salvarFilme();
     }
@@ -75,17 +77,35 @@ public class FilmeDAO {
         }
     }
 
+//    public void favoritar(int id) {
+//        for (int i = 0; i < filmes.size(); i++) {
+//            Filme f = filmes.get(i);
+//            if (f.getId() == id) {
+//                favoritos.add(f);
+//            }
+//        }
+//    }
+//
+//    public void desfavoritar(int id) {
+//        favoritos.removeIf(f -> f.getId() == id);
+//    }
+
     public void favoritar(int id) {
-        for (int i = 0; i < filmes.size(); i++) {
-            Filme f = filmes.get(i);
-            if (f.getId() == id) {
-                favoritos.add(f);
-            }
-        }
+        filmes.stream()
+                .filter(filme -> filme.getId() == id)
+                .map(filme -> {filme.setFavorito(true);
+                    return filme;
+                })
+                .collect(Collectors.toList());
     }
 
     public void desfavoritar(int id) {
-        favoritos.removeIf(f -> f.getId() == id);
+        filmes.stream()
+                .filter(filme -> filme.getId() == id)
+                .map(filme -> {filme.setFavorito(false);
+                    return filme;
+                })
+                .collect(Collectors.toList());
     }
 
     public Filme buscaId(int id) {

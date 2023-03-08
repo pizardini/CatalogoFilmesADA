@@ -23,7 +23,7 @@ public class NoticiaController {
     public String listar(Model model) {
         List<Noticia> lista = noticiaDAO.buscarTodos();
         model.addAttribute("noticias", lista);
-        return "listar";
+        return "noticia_listar";
     }
 
     @GetMapping("/editar/{id}")
@@ -36,13 +36,13 @@ public class NoticiaController {
     @PostMapping("/editar")
     public String atualizar(Noticia noticia) {
         noticiaDAO.editar(noticia);
-        return "redirect:/noticia";
+        return "redirect:/home";
     }
 
     @GetMapping("/remover/{id}")
     public String remover(@PathVariable int id) {
         noticiaDAO.remover(id);
-        return "redirect:/noticia";
+        return "redirect:/home";
     }
 
     @GetMapping("/novo")
@@ -54,6 +54,6 @@ public class NoticiaController {
     @PostMapping("/novo")
     public String adicionar(Noticia noticia) {
         noticiaDAO.adicionar(noticia);
-        return "redirect:/noticia";
+        return "redirect:/home";
     }
 }
