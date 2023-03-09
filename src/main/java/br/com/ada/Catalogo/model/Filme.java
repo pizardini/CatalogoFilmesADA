@@ -11,7 +11,6 @@ public class Filme {
     private int imdb;
     private String imagem;
     private int likes;
-
     private boolean favorito;
 
     private List<Ator> atores;
@@ -80,7 +79,7 @@ public class Filme {
         this.likes = likes;
     }
 
-    public boolean isFavorito() {
+    public boolean getFavorito() {
         return favorito;
     }
 

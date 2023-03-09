@@ -93,19 +93,13 @@ public class FilmeDAO {
     public void favoritar(int id) {
         filmes.stream()
                 .filter(filme -> filme.getId() == id)
-                .map(filme -> {filme.setFavorito(true);
-                    return filme;
-                })
-                .collect(Collectors.toList());
+                .forEach(filmeResposta -> filmeResposta.setFavorito(true));
     }
 
     public void desfavoritar(int id) {
         filmes.stream()
                 .filter(filme -> filme.getId() == id)
-                .map(filme -> {filme.setFavorito(false);
-                    return filme;
-                })
-                .collect(Collectors.toList());
+                .forEach(filmeResposta -> filmeResposta.setFavorito(false));
     }
 
     public Filme buscaId(int id) {
@@ -126,5 +120,11 @@ public class FilmeDAO {
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    public List<Filme> buscarFavoritos(){
+        return filmes.stream()
+                .filter(Filme::getFavorito)
+                .collect(Collectors.toList());
     }
 }

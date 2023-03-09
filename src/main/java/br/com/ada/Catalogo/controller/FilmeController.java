@@ -76,4 +76,12 @@ public class FilmeController {
         filmeDAO.adicionar(filme);
         return "redirect:/home";
     }
+
+    @GetMapping("/favoritos")
+    public String filmesFavoritos(Model model){
+        List<Filme> filmes = filmeDAO.buscarFavoritos();
+        model.addAttribute("filmes", filmes);
+
+        return "favoritos";
+    }
 }
