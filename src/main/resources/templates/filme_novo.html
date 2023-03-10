@@ -37,8 +37,14 @@
     <label for="imdb">Nota IMDB:</label>
     <input class="form-group" type="number" id="imdb" name="imdb" th:field="*{imdb}"/>
   </div>
+<!--  <div class="form-group">-->
+<!--    <label for="ListaAtores">Selecione os atores:</label>-->
+<!--    <select th:field="${listaAtores}" class="form-control" name="ListaAtores" id="ListaAtores" multiple>-->
+<!--      <option th:each="ator : ${atores}" th:text="${ator.nome}" th:value="${ator.id}">Nome</option>-->
+<!--    </select>-->
+<!--  </div>-->
   <button type="submit">Salvar</button>
-  <a th:href="@{/filme}">Cancelar</a>
+  <a th:href="@{/home}">Cancelar</a>
 </form>
 </body>
 </html>

@@ -13,7 +13,7 @@ public class Filme {
     private int likes;
     private boolean favorito;
 
-    private List<Ator> atores;
+    private List<Ator> listaAtores;
 
     public int getId() {
         return id;
@@ -87,11 +87,11 @@ public class Filme {
         this.favorito = favorito;
     }
 
-    public List<Ator> getAtores() {
-        return atores;
+    public List<Ator> getListaAtores() {
+        return listaAtores;
     }
 
-    public void setAtores(List<Ator> atores) {
-        this.atores = atores;
+    public void setListaAtores(List<Ator> listaAtores) {
+        this.listaAtores = listaAtores;
     }
 }

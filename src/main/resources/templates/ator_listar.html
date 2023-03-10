@@ -14,8 +14,6 @@
         <th scope="col">Informações</th>
         <th scope="col">Editar</th>
         <th scope="col">Excluir</th>
-        <td><a th:href="@{/ator/editar/{id}(id=${ator.id})}" class="btn btn-success" role="button">Editar</a></td>
-        <td><a th:href="@{/ator/remover/{id}(id=${ator.id})}" class="btn btn-danger" role="button" onclick="return confirm('Tem certeza que deseja excluir este ator?')">Excluir</a></td>
     </tr>
     </thead>
     <tbody>
@@ -31,6 +29,6 @@
     </tr>
     </tbody>
 </table>
-<a th:href="@{/ator/novo}" class="btn btn-info" role="button">Adicionar novo ator</a>
+<a th:href="@{/ator/novo}" class="btn btn-info" role="button">Adicionar novo ator</a> <a th:href="@{/home}" class="btn btn-dark" role="button">Voltar</a>
 </body>
 </html>
