@@ -12,7 +12,7 @@
   <tr>
     <th scope="col">Likes</th>
     <th scope="col">Capa</th>
-    <th scope="col">Titulo</th>
+    <th scope="col">Informações</th>
     <th scope="col">Like</th>
     <th scope="col">Favorito</th>
     <th scope="col">Dislike</th>
@@ -30,6 +30,7 @@
     <td>
       <b><p th:text="${filme.titulo}"></p></b>
       <p th:text="${filme.sinopse}"></p>
+      <p th:text="'Nota: ' + ${filme.getImdb()}"></p>
       <p th:text="${filme.duracao} + ' minutos'"></p>
     </td>
     <td><a th:href="@{/filme/like/{id}(id=${filme.id})}" class="btn btn-primary" role="button">Like</a></td>
@@ -57,6 +58,7 @@
     <a th:href="@{/noticia/remover/{id}(id=${noticia.id})}" onclick="return confirm('Tem certeza que deseja excluir esta notícia?')">Excluir</a>
   </div>
 </div>
+<br>
 <br>
 <a th:href="@{/noticia/novo}">Nova notícia</a>
 </div>

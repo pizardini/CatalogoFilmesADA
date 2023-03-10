@@ -12,7 +12,7 @@
   <tr>
     <th scope="col">Likes</th>
     <th scope="col">Capa</th>
-    <th scope="col">Titulo</th>
+    <th scope="col">Informações</th>
     <th scope="col">Like</th>
     <th scope="col">Favorito</th>
     <th scope="col">Dislike</th>
@@ -31,6 +31,7 @@
     <td>
       <p th:text="${filme.titulo}"></p>
       <p th:text="${filme.sinopse}"></p>
+      <p th:text="'Nota: ' + ${filme.getImdb()}"></p>
       <p th:text="${filme.duracao} + ' minutos'"></p>
     </td>
     <td><a th:href="@{/filme/like/{id}(id=${filme.id})}" class="btn btn-primary" role="button">Like</a></td>
@@ -45,5 +46,6 @@
   </tr>
   </tbody>
 </table>
+<a th:href="@{/home}" class="btn btn-info" role="button">Retornar à home</a>
 </body>
 </html>

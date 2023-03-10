@@ -8,7 +8,7 @@ public class Filme {
     private int duracao;
     private String genero;
     private String sinopse;
-    private int imdb;
+    private double imdb;
     private String imagem;
     private int likes;
     private boolean favorito;
@@ -55,11 +55,11 @@ public class Filme {
         this.sinopse = sinopse;
     }
 
-    public int getImdb() {
+    public double getImdb() {
         return imdb;
     }
 
-    public void setImdb(int imdb) {
+    public void setImdb(double imdb) {
         this.imdb = imdb;
     }
 
