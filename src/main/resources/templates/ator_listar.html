@@ -26,6 +26,8 @@
             <p th:text="${ator.nome}"></p>
             <p th:text="${ator.nacionalidade}"></p>
         </td>
+        <td><a th:href="@{/ator/editar/{id}(id=${ator.id})}" class="btn btn-success" role="button">Editar</a></td>
+        <td><a th:href="@{/ator/remover/{id}(id=${ator.id})}" class="btn btn-danger" role="button" onclick="return confirm('Tem certeza que deseja excluir este ator?')">Excluir</a></td>
     </tr>
     </tbody>
 </table>
