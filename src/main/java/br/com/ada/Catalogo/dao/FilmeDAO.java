@@ -77,19 +77,6 @@ public class FilmeDAO {
         }
     }
 
-//    public void favoritar(int id) {
-//        for (int i = 0; i < filmes.size(); i++) {
-//            Filme f = filmes.get(i);
-//            if (f.getId() == id) {
-//                favoritos.add(f);
-//            }
-//        }
-//    }
-//
-//    public void desfavoritar(int id) {
-//        favoritos.removeIf(f -> f.getId() == id);
-//    }
-
     public void favoritar(int id) {
         filmes.stream()
                 .filter(filme -> filme.getId() == id)
